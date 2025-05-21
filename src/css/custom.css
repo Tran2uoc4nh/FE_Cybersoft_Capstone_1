@@ -1,10 +1,11 @@
 /* ---------------Header-------------- */
 button {
     position: relative;
-    overflow: hidden; /* Đảm bảo hiệu ứng không tràn ra ngoài */
-    
+    overflow: hidden;
+    /* Đảm bảo hiệu ứng không tràn ra ngoài */
+
 }
-  
+
 button::after {
     content: "";
     position: absolute;
@@ -13,29 +14,71 @@ button::after {
     width: 100%;
     height: 0%;
     background-color: #FE330A;
-    z-index: 0; /* Đặt phía sau nội dung */
-    transition: height 0.5s; /* Tốc độ và easing có thể tuỳ chỉnh */
+    z-index: 0;
+    /* Đặt phía sau nội dung */
+    transition: height 0.5s;
+    /* Tốc độ và easing có thể tuỳ chỉnh */
 }
-  
+
 button:hover::after {
     height: 100%;
     transition: height 0.5s
 }
-  
+
 button span {
-    position: relative; /*Muốn bật z-index thì position phải khác static nên đặt là relative để nó vừa ko làm thay đổi chỗ vừa khác static*/
-    z-index: 1; /* Đặt chữ phía trên hiệu ứng */
+    position: relative;
+    /*Muốn bật z-index thì position phải khác static nên đặt là relative để nó vừa ko làm thay đổi chỗ vừa khác static*/
+    z-index: 1;
+    /* Đặt chữ phía trên hiệu ứng */
 }
 
 /* --------------Carousel------------ */
 
 .background-glow {
     background: radial-gradient(circle at 90% 40%, rgba(255, 102, 0, 0.9), transparent 30%),
-    #EFEAE3;
-  }
-  
-.slick-slider{
+        #EFEAE3;
+}
+
+.slick-slider {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ----------Freely Ask ---------- */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    /* adjust based on your content */
+}
+
+.accordion-item .icon-plus img {
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .icon-plus img {
+    transform: rotate(45deg);
+}
+/* ---------Footer--------- */
+.background-footer {
+    background: radial-gradient(circle at 90% 10%, rgba(255, 102, 0, 0.9), transparent 30%),
+        #EFEAE3;
+}
+
+.footer .content{
+    animation: scroll-left 20s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
